@@ -22,6 +22,8 @@ repositories {
 dependencies {
 	// yml 파일 암호화하기 위해
 	implementation ("com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.3")
+	// WebClient 사용하기 위해
+	implementation("org.springframework:spring-webflux")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")

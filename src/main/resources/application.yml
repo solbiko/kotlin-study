@@ -40,3 +40,4 @@ jasypt:
     string-output-type: base64
     key-obtention-iterations: 100000
 
+REST_API_KEY: ENC(F+HGLIZqDQqzIu7GvVA0dqRQzgZnOqvCCSFNy10VMzWg1ZqKHwayn6Oc8lNQw6XE)
