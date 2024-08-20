@@ -1,26 +1,32 @@
 server:
-  port: 9999
-  servlet:
-    context-path: /
-    encoding:
-      charset: UTF-8
-      force: true
+  port: 1234
+
 spring:
   datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/study
-    username: root
-    password: root1111
+    #    url: jdbc:h2:~/db;MODE=MySQL;
+    url: jdbc:h2:mem:db;MODE=MySQL;
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
   jpa:
-    open-in-view: true
     hibernate:
       ddl-auto: create
-      use-new-id-generator-mappings: false
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: false
+    open-in-view: false
+    show-sql: true
     properties:
       hibernate:
-        show_sql: false
         format_sql: true
-        highlight_sql: true
+    defer-datasource-initialization: true
+#  sql:
+#    init:
+#      mode: always
+#      data-locations: classpath:data.sql
 
 logging:
   pattern:
@@ -30,14 +36,5 @@ logging:
       hibernate:
         type.descriptor.sql: trace
         SQL: debug
-
-# Jasypt
-jasypt:
-  encryptor:
-    bean: jasyptStringEncryptor
-    algorithm: PBEWithMD5AndDES
-    pool-size: 2
-    string-output-type: base64
-    key-obtention-iterations: 100000
 
 REST_API_KEY: ENC(F+HGLIZqDQqzIu7GvVA0dqRQzgZnOqvCCSFNy10VMzWg1ZqKHwayn6Oc8lNQw6XE)
